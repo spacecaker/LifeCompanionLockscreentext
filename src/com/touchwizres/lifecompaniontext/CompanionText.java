@@ -65,7 +65,29 @@ public class CompanionText extends PreferenceActivity {
 					}
 
 		        });
-		    		        
+		    		
+		    	String textFont = sharedPreferences.getString("textfonterchange","samsungs5");
+		    	((ListPreference)findPreference("textfonterchange")).setSummary(textFont);
+		    	
+		        ((ListPreference)findPreference("textfonterchange")).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+
+					@Override
+					public boolean onPreferenceChange(Preference preference, Object newValue) {
+						String font = (String.valueOf(newValue));
+						Intent i = new Intent();
+						i.setAction("lifecompanion.CHANGE_COMPANION_FONT");
+						i.putExtra("textFont",font);
+						sendBroadcast(i);
+						preference.setSummary(font);
+						SharedPreferences sharedPreferences = getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE);
+			            SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
+			            editor.putString("textfonterchange", font); //true or false
+			            editor.commit();			
+						return true;
+					}
+
+		        });
+		        
 		     companionsName = sharedPreferences.getString("companionName","null");
 		     if (companionsName == "null") {
 		    	 spacecompanion.setText("Life companion"); 					

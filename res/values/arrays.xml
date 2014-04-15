@@ -16,12 +16,20 @@
     <item>10</item>
     <item>5</item>	
 </string-array>
-<string-array name="showhide_names">
-    <item>Show</item>
-    <item>Hide</item>
+<string-array name="font_names">
+    <item>Samsung S5</item>
+    <item>DroidSans</item>	
+    <item>DroidSans-Mono</item>
+    <item>DroidSans-Bold</item>
+    <item>DroidSerif</item>
+    <item>DroidSerif-Italic</item>
 </string-array>
-<string-array name="showhide_values">
-    <item>show</item>
-    <item>hide</item>	
+<string-array name="font_values">
+    <item>samsungs5</item>
+    <item>droidsans</item>	
+    <item>droidsansmono</item>
+    <item>droidsansbold</item>
+    <item>droidserif</item>
+    <item>droidserifitalic</item>    
 </string-array>     
 </resources>

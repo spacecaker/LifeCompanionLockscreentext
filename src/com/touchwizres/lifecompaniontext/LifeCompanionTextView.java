@@ -20,6 +20,7 @@ public class LifeCompanionTextView extends TextView {
 	String lifecompColor;
     String spacename;
     String textSizer;
+    String textFont;
     String companionShow;
     String message;
     
@@ -41,8 +42,7 @@ public class LifeCompanionTextView extends TextView {
     	lifename.setTextColor(Color.parseColor(lifecompColor));
     		    
 	    // font
-        Typeface tf = Typeface.createFromFile("/system/fonts/SpaceFont.ttf");
-        lifename.setTypeface(tf);
+
 	    
         // options
 	    textSizer = sharedPreferences.getString("type","40");
@@ -64,7 +64,66 @@ public class LifeCompanionTextView extends TextView {
 	    	else if ("5".equals(textSizer)) {
 	    		lifename.setTextSize(TypedValue.COMPLEX_UNIT_SP, 5);
 	    	}	     	
-	     		        
+	     	
+		    textFont = sharedPreferences.getString("font","samsungs5");
+	     	if ("samsungs5".equals(textFont)) {
+	            Typeface tf = Typeface.createFromFile("/system/fonts/DroidSans.ttf");
+	            lifename.setTypeface(tf);
+	    	}
+	    	else if ("droidsans".equals(textFont)) {
+	            Typeface tf = Typeface.createFromFile("/system/fonts/DroidSans.ttf");
+	            lifename.setTypeface(tf);
+	    	} 
+	    	else if ("droidsansmono".equals(textFont)) {
+	            Typeface tf = Typeface.createFromFile("/system/fonts/DroidSansMono.ttf");
+	            lifename.setTypeface(tf);
+	    	}
+	    	else if ("droidsansbold".equals(textFont)) {
+	            Typeface tf = Typeface.createFromFile("/system/fonts/DroidSans-Bold.ttf");
+	            lifename.setTypeface(tf);
+	    	}
+	    	else if ("droidserif".equals(textFont)) {
+	            Typeface tf = Typeface.createFromFile("/system/fonts/DroidSerif-Regular.ttf");
+	            lifename.setTypeface(tf);
+	    	}		     	
+	    	else if ("droidserifitalic".equals(textFont)) {
+	            Typeface tf = Typeface.createFromFile("/system/fonts/DroidSerif-Italic.ttf");
+	            lifename.setTypeface(tf);
+	    	}	     	
+	     	
+	        BroadcastReceiver mTextFonterReceiver = new BroadcastReceiver() {
+	            @Override
+	            public void onReceive(Context c, Intent i) {
+	            	message = i.getStringExtra("textFont");
+	            	
+	            	if ("samsungs5".equals(message )) {
+	    	            // Typeface tf = Typeface.createFromFile("/system/fonts/SpaceFont.ttf");
+	            		Typeface tf = Typeface.createFromFile("/system/fonts/DroidSans.ttf");
+	    	            lifename.setTypeface(tf);
+	            	}
+	            	else if ("droidsans".equals(message )) {
+	            		Typeface tf = Typeface.createFromFile("/system/fonts/DroidSans.ttf");
+	    	            lifename.setTypeface(tf);
+	            	}
+	    	    	else if ("droidsansmono".equals(message)) {
+	    	    		Typeface tf = Typeface.createFromFile("/system/fonts/DroidSansMono.ttf");
+	    	            lifename.setTypeface(tf);
+	    	    	}
+	    	    	else if ("droidsansbold".equals(message)) {
+	    	    		Typeface tf = Typeface.createFromFile("/system/fonts/DroidSans-Bold.ttf");
+	    	            lifename.setTypeface(tf);
+	    	    	}
+	    	    	else if ("droidserif".equals(message)) {
+	    	    		Typeface tf = Typeface.createFromFile("/system/fonts/DroidSerif-Regular.ttf");
+	    	            lifename.setTypeface(tf);
+	    	    	}	
+	    	    	else if ("droidserifitalic".equals(message)) {
+	    	    		Typeface tf = Typeface.createFromFile("/system/fonts/DroidSerif-Italic.ttf");
+	    	            lifename.setTypeface(tf);
+	    	    	}	            	
+	            }	            
+	        }; 
+	        
 	        BroadcastReceiver mTextSizerReceiver = new BroadcastReceiver() {
 	            @Override
 	            public void onReceive(Context c, Intent i) {
@@ -116,6 +175,7 @@ public class LifeCompanionTextView extends TextView {
         }       
     };   
     
+    context.registerReceiver(mTextFonterReceiver, new IntentFilter("lifecompanion.CHANGE_COMPANION_FONT"));
     context.registerReceiver(mTextSizerReceiver, new IntentFilter("lifecompanion.CHANGE_COMPANION_SIZE"));   
     context.registerReceiver(mLifeColorReceiver, new IntentFilter("lifecompanion.CHANGE_COMPANION_COLOR"));
     context.registerReceiver(mReceiver, new IntentFilter("lifecompanion.CHANGE_COMPANION"));    
