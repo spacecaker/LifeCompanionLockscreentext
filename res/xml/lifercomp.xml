@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<net.margaritov.preference.colorpicker.ColorPickerPreference android:key="lifecompanionColor" android:title="Set Lifecompanion Text color" android:summary="color" android:defaultValue="@android:color/white" />
+	<ListPreference android:title="Choose Lifecompanion Text size." android:summary="Change the text size of lifecompaniontext." android:key="textsizerchange" android:defaultValue="40" android:entries="@array/size_names" android:entryValues="@array/size_values" />
+</PreferenceScreen>
