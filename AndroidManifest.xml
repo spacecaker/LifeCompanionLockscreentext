@@ -24,7 +24,8 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>  
+        </activity> 
+ 
         <activity android:name="net.margaritov.preference.colorpicker" android:screenOrientation="portrait" />  
     </application>
 

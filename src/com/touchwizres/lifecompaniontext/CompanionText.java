@@ -42,7 +42,7 @@ public class CompanionText extends PreferenceActivity {
 		  done = (ImageView) findViewById(R.id.name);
 		
 		  //checks shared preferences
-		     SharedPreferences sharedPreferences = getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+		     SharedPreferences sharedPreferences = getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 
 		    	String textFontSize = sharedPreferences.getString("textFontSize","40");
 		    	((ListPreference)findPreference("textFontSize")).setSummary(textFontSize);
@@ -57,7 +57,7 @@ public class CompanionText extends PreferenceActivity {
 						i.putExtra("textFontSize",fontsize);
 						sendBroadcast(i);
 						preference.setSummary(fontsize);
-						SharedPreferences sharedPreferences = getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+						SharedPreferences sharedPreferences = getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 			            SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 			            editor.putString("textFontSize", fontsize); //true or false
 			            editor.commit();			
@@ -79,7 +79,7 @@ public class CompanionText extends PreferenceActivity {
 						i.putExtra("textFont",font);
 						sendBroadcast(i);
 						preference.setSummary(font);
-						SharedPreferences sharedPreferences = getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+						SharedPreferences sharedPreferences = getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 			            SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 			            editor.putString("textFont", font); //true or false
 			            editor.commit();			
@@ -105,7 +105,7 @@ public class CompanionText extends PreferenceActivity {
 					intent.setAction("lifecompanion.CHANGE_COMPANION");
 					intent.putExtra("NAME", companionName.toString() );
 					sendBroadcast(intent);
-			        SharedPreferences sharedPreferences = getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+			        SharedPreferences sharedPreferences = getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 			        SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 			        editor.putString("companionName", companionName.toString()); //true or false
 			        editor.commit();			        
@@ -123,7 +123,7 @@ public class CompanionText extends PreferenceActivity {
 		 			public boolean onPreferenceChange(Preference preference, Object newValue) {
 		 				comptext = (ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue))));;
 		 				preference.setSummary(comptext);
-		 	            SharedPreferences sharedPreferences = getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+		 	            SharedPreferences sharedPreferences = getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 		 	            SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 		 	            editor.putString("lifecompanionColor", comptext); //true or false
 		 	            editor.commit();
@@ -135,7 +135,7 @@ public class CompanionText extends PreferenceActivity {
 		 			}
 
 		         });
-		         String lifecompanioncolor = getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE).getString("lifecompanionColor","#ffffffff");
+		         String lifecompanioncolor = getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE).getString("lifecompanionColor","#ffffffff");
 		 	    
 		 	    ((ColorPickerPreference)findPreference("lifecompanionColor")).setDefaultValue(lifecompanioncolor);
 		 	    ((ColorPickerPreference)findPreference("lifecompanionColor")).setSummary(lifecompanioncolor);				

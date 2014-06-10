@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -31,8 +32,7 @@ public class LifeCompanionTextView extends TextView {
        	lifename = (TextView) findViewById(R.id.life_companion_tag);    
        	
        	// preference
-	    SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
-	    
+	    SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	    // textchanger
 	    spacename = sharedPreferences.getString("companionName","Life companion");
 	    lifename.setText(spacename);
@@ -95,7 +95,7 @@ public class LifeCompanionTextView extends TextView {
 	            	if ("samsungs5".equals(message )) {
 	    	            Typeface tf = Typeface.createFromFile("/system/fonts/SpaceFont.ttf");
 	    	            lifename.setTypeface(tf);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("font", message); //true or false
 	                  	editor.commit();
@@ -103,7 +103,7 @@ public class LifeCompanionTextView extends TextView {
 	            	else if ("droidsans".equals(message )) {
 	            		Typeface tf = Typeface.createFromFile("/system/fonts/DroidSans.ttf");
 	    	            lifename.setTypeface(tf);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("font", message); //true or false
 	                  	editor.commit();
@@ -111,7 +111,7 @@ public class LifeCompanionTextView extends TextView {
 	    	    	else if ("droidsansmono".equals(message)) {
 	    	    		Typeface tf = Typeface.createFromFile("/system/fonts/DroidSansMono.ttf");
 	    	            lifename.setTypeface(tf);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("font", message); //true or false
 	                  	editor.commit();
@@ -119,7 +119,7 @@ public class LifeCompanionTextView extends TextView {
 	    	    	else if ("droidsansbold".equals(message)) {
 	    	    		Typeface tf = Typeface.createFromFile("/system/fonts/DroidSans-Bold.ttf");
 	    	            lifename.setTypeface(tf);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("font", message); //true or false
 	                  	editor.commit();
@@ -127,7 +127,7 @@ public class LifeCompanionTextView extends TextView {
 	    	    	else if ("droidserif".equals(message)) {
 	    	    		Typeface tf = Typeface.createFromFile("/system/fonts/DroidSerif-Regular.ttf");
 	    	            lifename.setTypeface(tf);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("font", message); //true or false
 	                  	editor.commit();
@@ -135,7 +135,7 @@ public class LifeCompanionTextView extends TextView {
 	    	    	else if ("droidserifitalic".equals(message)) {
 	    	    		Typeface tf = Typeface.createFromFile("/system/fonts/DroidSerif-Italic.ttf");
 	    	            lifename.setTypeface(tf);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("font", message); //true or false
 	                  	editor.commit();
@@ -150,42 +150,42 @@ public class LifeCompanionTextView extends TextView {
 	            	
 	            	if ("40".equals(message )) {
 	    	            lifename.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("fontsize", message); //true or false
 	                  	editor.commit();
 	            	}
 	            	else if ("30".equals(message )) {
 	            		lifename.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("fontsize", message); //true or false
 	                  	editor.commit();
 	            	}
 	    	    	else if ("20".equals(message)) {
 	    	    		lifename.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("fontsize", message); //true or false
 	                  	editor.commit();
 	    	    	}
 	    	    	else if ("15".equals(message)) {
 	    	    		lifename.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("fontsize", message); //true or false
 	                  	editor.commit();
 	    	    	}
 	    	    	else if ("10".equals(message)) {
 	    	    		lifename.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("fontsize", message); //true or false
 	                  	editor.commit();
 	    	    	}	
 	    	    	else if ("5".equals(message)) {
 	    	    		lifename.setTextSize(TypedValue.COMPLEX_UNIT_SP, 5);
-	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+	            		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
 	                  	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
 	                  	editor.putString("fontsize", message); //true or false
 	                  	editor.commit();
@@ -198,7 +198,7 @@ public class LifeCompanionTextView extends TextView {
             public void onReceive(Context c, Intent i) {
             	lifecompColor = i.getStringExtra("lifecompanionColor");
           	  	lifename.setTextColor(Color.parseColor(lifecompColor));
-          	  	SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+          	  	SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
               	SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
               	editor.putString("lifecompanionColor", lifecompColor); //true or false
               	editor.commit();	 
@@ -210,7 +210,7 @@ public class LifeCompanionTextView extends TextView {
         	public void onReceive(Context c, Intent i) {
         		spacename = i.getStringExtra("NAME");
         		lifename.setText(spacename);
-        		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_PRIVATE);
+        		SharedPreferences sharedPreferences = context.getSharedPreferences("LifeCompanionFile",Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
         		SharedPreferences.Editor editor = sharedPreferences.edit(); //opens the editor
         		editor.putString("companionName", spacename); //true or false
         		editor.commit();	 
